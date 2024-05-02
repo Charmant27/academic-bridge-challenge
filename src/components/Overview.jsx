@@ -1,8 +1,12 @@
-import React from 'react'
+import Sidebar from "./Sidebar"
+import Navbar from "./Navbar";
 
 const Overview = () => {
   return (
-    <section>Overview</section>
+    <div className="flex">
+      <Sidebar />
+      <Navbar />
+    </div>
   )
 }
 

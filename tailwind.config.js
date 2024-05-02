@@ -12,6 +12,7 @@ export const theme = {
     colors: {
       gray: {
         100: '#f6f8fa',
+        200: '#8c95a1',
       },
 
       purple: {

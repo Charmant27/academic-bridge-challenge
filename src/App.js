@@ -1,11 +1,9 @@
-import Sidebar from "./components/Sidebar";
-import Navbar from "./components/Navbar";
+import Overview from "./components/Overview";
 
 function App() {
   return (
     <>
-      <Sidebar />
-      <Navbar />
+      <Overview />
     </>
   );
 }

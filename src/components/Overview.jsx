@@ -1,5 +1,6 @@
 import Sidebar from "./Sidebar"
-import Navbar from "./Navbar";
+import Navbar from "./Navbar"
+import Tasks from "./Tasks"
 import { MdArrowForwardIos } from "react-icons/md"
 import { TiLockOpenOutline } from "react-icons/ti"
 import { IoIosArrowDown } from "react-icons/io"
@@ -88,10 +89,10 @@ const Overview = () => {
             <h2>From 23 April</h2>
             <div className="flex gap-3 items-center">
               <div className="h-2 w-2 bg-green-200 rounded-full"></div>
-              <p>Updated 12 min ago</p>
+              <p className="text-gray-200">Updated 12 min ago</p>
             </div>
             <div className="flex gap-3 items-center">
-              <button>
+              <button className="text-purple-100">
                 <FaUnlink />
               </button>
               <div className="bg-gray-200 h-6 w-[0.8px]"></div>
@@ -105,6 +106,7 @@ const Overview = () => {
           </div>
 
         </div>
+        <Tasks />
       </div>
 
     </div>

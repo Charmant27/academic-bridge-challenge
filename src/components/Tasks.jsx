@@ -18,14 +18,14 @@ const Tasks = () => {
   const [inProgressTodos, setInProgressTodos] = useState([])
 
 
-  const { API_URL, todos, setTodos, mode } = useGlobalContext()
+  const { todos, setTodos, mode } = useGlobalContext()
 
   const { t } = useTranslation()
 
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const res = await fetch(`${API_URL}/todos`)
+        const res = await fetch('https://dummyjson.com/todos')
         const data = await res.json()
         setTodos(data.todos)
 
@@ -36,11 +36,11 @@ const Tasks = () => {
         setInProgressTodos(numOfInProgressTodos)
 
       } catch (error) {
-
+        console.error(error)
       }
     }
     fetchTasks()
-  }, [API_URL, setTodos])
+  }, [setTodos])
 
   const filterTodos = todos.filter(todo => {
     if (filteredTodos === 'progress') {

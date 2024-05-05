@@ -34,7 +34,7 @@ const Navbar = () => {
         'bg-slate-800 text-white'} w-full px-2 md:px-10 py-8 h-20 flex items-center justify-between`
     }>
       <div className="relative flex items-center">
-        <div className="md:absolute hidden md:block right-6">
+        <div className="md:absolute hidden md:block right-6 text-gray-200">
           <FaSearch />
         </div>
         <div className="input-field">

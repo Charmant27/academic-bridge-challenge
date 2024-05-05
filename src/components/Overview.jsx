@@ -41,7 +41,7 @@ const Overview = () => {
             <h1 className="font-extrabold text-2xl md:text-4xl">{t('webDesign')}</h1>
             <div className="flex items-center gap-5">
 
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-[3px] md:gap-2">
                 <div className="text-gray-200 text-xl">
                   <TiLockOpenOutline />
                 </div>

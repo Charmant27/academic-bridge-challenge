@@ -1,8 +1,14 @@
 import { useState, useEffect } from "react"
+
+import { useTranslation } from 'react-i18next';
+
+// icons
 import { BsInputCursorText } from "react-icons/bs"
 import { FaPlus } from "react-icons/fa6"
 import { BsThreeDotsVertical } from "react-icons/bs"
 import { AiOutlineMessage } from "react-icons/ai"
+
+// global context
 import { useGlobalContext } from "../context/Context"
 
 const Tasks = () => {
@@ -11,7 +17,10 @@ const Tasks = () => {
   const [completedTodos, setCompletedTodos] = useState([])
   const [inProgressTodos, setInProgressTodos] = useState([])
 
+
   const { API_URL, todos, setTodos } = useGlobalContext()
+
+  const { t } = useTranslation()
 
   useEffect(() => {
     const fetchTasks = async () => {
@@ -34,10 +43,10 @@ const Tasks = () => {
   }, [API_URL, setTodos])
 
   const filterTodos = todos.filter(todo => {
-    if(filteredTodos === 'progress') {
+    if (filteredTodos === 'progress') {
       return !todo.completed
-    } 
-    else if(filteredTodos === 'completed') {
+    }
+    else if (filteredTodos === 'completed') {
       return todo.completed
     } else {
       return true
@@ -56,7 +65,7 @@ const Tasks = () => {
               onClick={() => setFilterTodos("all")}
               className={filteredTodos === "all" ? "text-purple-100 font-semibold" : 'text-gray-200'}
             >
-              All Tasks <span className='bg-gray-300 rounded-md px-2'>{todos.length}</span>
+              {t('allTasks')} <span className='bg-gray-300 rounded-md px-2'>{todos.length}</span>
             </button>
           </div>
           <div className='flex items-center gap-2'>
@@ -64,7 +73,7 @@ const Tasks = () => {
               onClick={() => setFilterTodos("progress")}
               className={filteredTodos === "progress" ? "text-purple-100 font-semibold" : 'text-gray-200'}
             >
-              In Progress <span className='bg-gray-300 rounded-md px-2'>{completedTodos}</span>
+              {t('inProgress')} <span className='bg-gray-300 rounded-md px-2'>{completedTodos}</span>
             </button>
           </div>
           <div className='flex items-center gap-2'>
@@ -72,7 +81,7 @@ const Tasks = () => {
               onClick={() => setFilterTodos('completed')}
               className={filteredTodos === "completed" ? "text-purple-100 font-semibold" : 'text-gray-200'}
             >
-              Completed <span className='bg-gray-300 rounded-md px-2'>{inProgressTodos}</span>
+              {t('completed')} <span className='bg-gray-300 rounded-md px-2'>{inProgressTodos}</span>
             </button>
           </div>
         </div>

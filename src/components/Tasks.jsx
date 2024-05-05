@@ -31,7 +31,7 @@ const Tasks = () => {
       }
     }
     fetchTasks()
-  }, [])
+  }, [API_URL, setTodos])
 
   const filterTodos = todos.filter(todo => {
     if(filteredTodos === 'progress') {

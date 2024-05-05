@@ -54,15 +54,15 @@ const Tasks = () => {
   })
 
   return (
-    <section className='px-10 pb-10 flex flex-col gap-6'>
+    <section className='px-2 md:px-10 pb-10 flex flex-col gap-6'>
       <div
         className={
           `${mode === 'light' ? 'bg-white ' 
-          : 'bg-slate-800'} rounded-lg px-6 py-4 flex flex-col md:flex-row md:justify-between`
+          : 'bg-slate-800'} rounded-lg px-2 md:px-6 py-4 flex gap-3 flex-col md:flex-row md:justify-between`
         }
       >
 
-        <div className='flex gap-12 items-center'>
+        <div className='flex md:gap-12 items-center'>
           <div className='flex items-center gap-2'>
             <button
               onClick={() => setFilterTodos("all")}
@@ -91,12 +91,12 @@ const Tasks = () => {
 
         <div className="flex gap-6 items-center">
           <button
-            className="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-300 text-gray-200"
+            className="flex items-center text-sm gap-2 px-2 md:px-4 py-2 rounded-lg border border-gray-300 text-gray-200"
           >
             <BsInputCursorText /> <span>{t('Filter & Sort')}</span>
           </button>
           <button
-            className="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-300 text-gray-200"
+            className="flex items-center text-sm gap-2 px-2 md:px-4 py-2 rounded-lg border border-gray-300 text-gray-200"
           >
             <FaPlus /> <span>{t('newTask')}</span>
           </button>
@@ -107,7 +107,7 @@ const Tasks = () => {
           <>
             <div className={
               `${mode === 'light' ? 'bg-white' :
-                'flex bg-slate-800'} flex flex-col gap-3 w-60 rounded-lg px-4 py-4`
+                'flex bg-slate-800'} flex flex-col gap-3 w-full md:w-60 rounded-lg px-4 py-4`
             }>
               <div className="flex justify-between">
                 {todo.completed ? (
@@ -119,7 +119,7 @@ const Tasks = () => {
                   <BsThreeDotsVertical />
                 </button>
               </div>
-              <h3 className={`${mode === 'dark' ? 'text-gray-200' : 'text-black'}`}>{todo.todo.slice(0, 20)}...</h3>
+              <h3 className={`${mode === 'dark' ? 'text-gray-200' : 'text-black'}`}>{todo.todo}</h3>
               <div className="bg-gray-200 h-[0.5px] w-full"></div>
               <div className="flex justify-between">
                 <div className="flex gap-3">

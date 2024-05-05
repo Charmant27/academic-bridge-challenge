@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { useGlobalContext } from '../context/Context';
 
 // icons
-import { FaSearch, FaRegMoon, FaRegBell } from "react-icons/fa";
+import { FaSearch, FaRegMoon, FaRegBell, FaBars } from "react-icons/fa";
 
 const Navbar = () => {
   const [lang, setLang] = useState("en");
@@ -31,22 +31,22 @@ const Navbar = () => {
     <nav className={
       `${mode === 'light' ? 'bg-white'
         :
-        'bg-slate-800 text-white'} w-full px-10 py-8 h-20 flex items-center gap-3 md:justify-between`
+        'bg-slate-800 text-white'} w-full px-2 md:px-10 py-8 h-20 flex items-center justify-between`
     }>
       <div className="relative flex items-center">
-        <div className="absolute right-6">
+        <div className="md:absolute hidden md:block right-6">
           <FaSearch />
         </div>
         <div className="input-field">
           <input
             type="text"
             placeholder={t('search') || 'Search'}
-            className="bg-gray-100 text-black px-3 py-3 rounded-lg md:w-[300px]"
+            className="bg-gray-100 text-black px-3 py-3 rounded-lg w-28 md:w-[300px]"
           />
         </div>
       </div>
 
-      <div className="flex gap-5">
+      <div className="flex items-center gap-5">
         <button onClick={toggle} className="bg-gray-100 px-2 py-2 rounded-lg text-gray-200 text-xl">
           <FaRegMoon />
         </button>
@@ -60,7 +60,7 @@ const Navbar = () => {
           <select
             value={lang}
             onChange={handleLanguage}
-            className='bg-gray-100 text-gray-200 px-4 py-2 rounded-lg'
+            className='bg-gray-100 text-gray-200 px-4 py-2 rounded-lg hidden md:block'
           >
             {languages.map((item) => {
               return (
@@ -73,6 +73,11 @@ const Navbar = () => {
               );
             })}
           </select>
+          <div className='text-gray-200 md:hidden'>
+            <button className='text-2xl'>
+              <FaBars />
+            </button>
+          </div>
         </div>
       </div>
     </nav>

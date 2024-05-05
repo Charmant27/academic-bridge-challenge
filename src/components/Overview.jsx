@@ -1,6 +1,12 @@
+// components
 import Sidebar from "./Sidebar"
 import Navbar from "./Navbar"
 import Tasks from "./Tasks"
+
+// translation
+import { useTranslation } from 'react-i18next';
+
+// icons
 import { MdArrowForwardIos } from "react-icons/md"
 import { TiLockOpenOutline } from "react-icons/ti"
 import { IoIosArrowDown } from "react-icons/io"
@@ -9,6 +15,8 @@ import { FaBarsProgress } from "react-icons/fa6"
 import { HiOutlineSquares2X2 } from "react-icons/hi2"
 
 const Overview = () => {
+  const { t } = useTranslation()
+
   return (
     <div className="flex">
       <Sidebar />
@@ -20,17 +28,17 @@ const Overview = () => {
           <div className="flex flex-col gap-6">
 
             <div className="flex items-center gap-4">
-              <button className="text-gray-200">Workspace</button>
+              <button className="text-gray-200">{t('workspace')}</button>
               <div className="text-gray-200">
                 <MdArrowForwardIos />
               </div>
-              <button className="text-gray-200">Creative</button>
+              <button className="text-gray-200">{t('creative')}</button>
               <div className="text-gray-200">
                 <MdArrowForwardIos />
               </div>
-              <button>Creative Website</button>
+              <button>{t('creativeWebsite')}</button>
             </div>
-            <h1 className="font-extrabold text-4xl">Website Design</h1>
+            <h1 className="font-extrabold text-4xl">{t('webDesign')}</h1>
             <div className="flex items-center gap-5">
 
               <div className="flex items-center gap-2">
@@ -38,7 +46,7 @@ const Overview = () => {
                   <TiLockOpenOutline />
                 </div>
                 <div>
-                  <h3>Limited access</h3>
+                  <h3>{t('limitedAccess')}</h3>
                 </div>
                 <div className="text-gray-200 text-xl">
                   <IoIosArrowDown />
@@ -86,10 +94,10 @@ const Overview = () => {
           </div>
         {/* second col */}
           <div className="flex flex-col items-end gap-6">
-            <h2>From 23 April</h2>
+            <h2>{t('From 23 April')}</h2>
             <div className="flex gap-3 items-center">
               <div className="h-2 w-2 bg-green-200 rounded-full"></div>
-              <p className="text-gray-200">Updated 12 min ago</p>
+              <p className="text-gray-200">{t('Updated 12 min ago')}</p>
             </div>
             <div className="flex gap-3 items-center">
               <button className="text-purple-100">

@@ -90,12 +90,12 @@ const Tasks = () => {
           <button
             className="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-300 text-gray-200"
           >
-            <BsInputCursorText /> <span>Filter & Sort</span>
+            <BsInputCursorText /> <span>{t('Filter & Sort')}</span>
           </button>
           <button
             className="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-300 text-gray-200"
           >
-            <FaPlus /> <span>New Task</span>
+            <FaPlus /> <span>{t('newTask')}</span>
           </button>
         </div>
       </div>

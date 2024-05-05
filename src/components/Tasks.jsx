@@ -18,7 +18,7 @@ const Tasks = () => {
   const [inProgressTodos, setInProgressTodos] = useState([])
 
 
-  const { API_URL, todos, setTodos } = useGlobalContext()
+  const { API_URL, todos, setTodos, mode } = useGlobalContext()
 
   const { t } = useTranslation()
 
@@ -56,7 +56,10 @@ const Tasks = () => {
   return (
     <section className='px-10 pb-10 flex flex-col gap-6'>
       <div
-        className='bg-white rounded-lg px-6 py-4 flex flex-col md:flex-row md:justify-between'
+        className={
+          `${mode === 'light' ? 'bg-white ' 
+          : 'bg-slate-800'} rounded-lg px-6 py-4 flex flex-col md:flex-row md:justify-between`
+        }
       >
 
         <div className='flex gap-12 items-center'>
@@ -102,7 +105,10 @@ const Tasks = () => {
       <div className="flex flex-wrap gap-x-20 gap-y-3">
         {Array.isArray(filterTodos) && filterTodos.map((todo) => (
           <>
-            <div className="bg-white flex flex-col gap-3 w-60 rounded-lg px-4 py-4">
+            <div className={
+              `${mode === 'light' ? 'bg-white' :
+                'flex bg-slate-800'} flex flex-col gap-3 w-60 rounded-lg px-4 py-4`
+            }>
               <div className="flex justify-between">
                 {todo.completed ? (
                   <p className="bg-green-100 text-green-200 px-3 rounded-md text-sm">Completed</p>
@@ -113,7 +119,7 @@ const Tasks = () => {
                   <BsThreeDotsVertical />
                 </button>
               </div>
-              <h3>{todo.todo.slice(0, 20)}...</h3>
+              <h3 className={`${mode === 'dark' ? 'text-gray-200' : 'text-black'}`}>{todo.todo.slice(0, 20)}...</h3>
               <div className="bg-gray-200 h-[0.5px] w-full"></div>
               <div className="flex justify-between">
                 <div className="flex gap-3">

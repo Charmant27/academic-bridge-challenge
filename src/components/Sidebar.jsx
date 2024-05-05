@@ -3,10 +3,16 @@ import { CiMail, CiFileOn, CiFolderOn } from "react-icons/ci"
 import { FaPlus, FaRegUser } from "react-icons/fa"
 import { IoSettingsOutline } from "react-icons/io5"
 
+import { useGlobalContext } from "../context/Context"
+
 const Sidebar = () => {
+  const { mode } = useGlobalContext()
   return (
     <section
-      className='bg-white w-[5%] flex flex-col gap-6 border-r border-r-gray-100 h-screen'
+      className={`${mode === 'light' ?
+        'bg-white border-r border-r-gray-100' :
+        'bg-slate-800 border-r border-r-slate-700 text-white'} w-[5%] md:flex flex-col gap-6 h-screen hidden`
+      }
     >
       <div className="px-4 py-8">
         <img
@@ -31,9 +37,9 @@ const Sidebar = () => {
         </div>
       </div>
 
-      <div className="h-[1px] bg-gray-100 w-full"></div>
+      <div className={`${mode === 'light' ? 'bg-gray-100' : 'bg-slate-700'} h-[1px] w-full`}></div>
 
-      <div className="px-4 flex flex-col gap-3">
+      <div className="px-4 py-6 flex flex-col gap-3">
 
         <div className="relative">
           <div className="absolute w-2 h-2 left-[25px] bg-green-200 rounded-full"></div>
@@ -58,7 +64,7 @@ const Sidebar = () => {
         </div>
       </div>
 
-      <div className="h-[1px] bg-gray-100 w-full"></div>
+      <div className={`${mode === 'light' ? 'bg-gray-100' : 'bg-slate-700'} h-[1px] w-full`}></div>
 
       <div className="flex flex-col gap-5 px-4 pt-20">
         <div className="text-gray-200 font-extrabold text-2xl">

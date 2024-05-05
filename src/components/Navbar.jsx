@@ -1,11 +1,15 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next'
 
+// global context
+import { useGlobalContext } from '../context/Context';
+
 // icons
 import { FaSearch, FaRegMoon, FaRegBell } from "react-icons/fa";
 
 const Navbar = () => {
   const [lang, setLang] = useState("en");
+  const { toggle, mode } = useGlobalContext()
 
   const languages = [
     { value: "", text: "Options" },
@@ -24,7 +28,11 @@ const Navbar = () => {
   };
 
   return (
-    <nav className='bg-white w-full px-10 py-8 h-20 flex items-center gap-3 md:justify-between'>
+    <nav className={
+      `${mode === 'light' ? 'bg-white'
+        :
+        'bg-slate-800 text-white'} w-full px-10 py-8 h-20 flex items-center gap-3 md:justify-between`
+    }>
       <div className="relative flex items-center">
         <div className="absolute right-6">
           <FaSearch />
@@ -33,13 +41,13 @@ const Navbar = () => {
           <input
             type="text"
             placeholder={t('search') || 'Search'}
-            className="bg-gray-100 px-3 py-3 rounded-lg md:w-[300px]"
+            className="bg-gray-100 text-black px-3 py-3 rounded-lg md:w-[300px]"
           />
         </div>
       </div>
 
       <div className="flex gap-5">
-        <button className="bg-gray-100 px-2 py-2 rounded-lg text-gray-200 text-xl">
+        <button onClick={toggle} className="bg-gray-100 px-2 py-2 rounded-lg text-gray-200 text-xl">
           <FaRegMoon />
         </button>
         <div className="relative">
@@ -52,7 +60,7 @@ const Navbar = () => {
           <select
             value={lang}
             onChange={handleLanguage}
-            className='bg-gray-100 px-4 py-2 rounded-lg'
+            className='bg-gray-100 text-gray-200 px-4 py-2 rounded-lg'
           >
             {languages.map((item) => {
               return (

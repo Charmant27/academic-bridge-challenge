@@ -7,3 +7,12 @@
 body {
   background-color: #f6f8fa;
 }
+
+.light {
+  background-color: #f6f8fa;
+}
+
+.dark {
+  background-color: black;
+  color: white;
+}

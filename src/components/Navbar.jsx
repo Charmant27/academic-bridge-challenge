@@ -1,6 +1,28 @@
+import { useState } from 'react';
+import { useTranslation } from 'react-i18next'
+
+// icons
 import { FaSearch, FaRegMoon, FaRegBell } from "react-icons/fa";
 
 const Navbar = () => {
+  const [lang, setLang] = useState("en");
+
+  const languages = [
+    { value: "", text: "Options" },
+    { value: "en", text: "English" },
+    { value: "en", text: "French" },
+  ];
+
+  const { t } = useTranslation()
+
+  const handleLanguage = (e) => {
+    setLang(e.target.value);
+    let loc = "http://localhost:3000/";
+    window.location.replace(
+      loc + "?lng=" + e.target.value
+    );
+  };
+
   return (
     <nav className='bg-white w-full px-10 py-8 h-20 flex items-center gap-3 md:justify-between'>
       <div className="relative flex items-center">
@@ -10,7 +32,7 @@ const Navbar = () => {
         <div className="input-field">
           <input
             type="text"
-            placeholder="Search"
+            placeholder={t('search') || 'Search'}
             className="bg-gray-100 px-3 py-3 rounded-lg md:w-[300px]"
           />
         </div>
@@ -25,6 +47,24 @@ const Navbar = () => {
           <button className="bg-gray-100 px-2 py-2 rounded-lg text-gray-200 text-xl">
             <FaRegBell />
           </button>
+        </div>
+        <div>
+          <select
+            value={lang}
+            onChange={handleLanguage}
+            className='bg-gray-100 px-4 py-2 rounded-lg'
+          >
+            {languages.map((item) => {
+              return (
+                <option
+                  key={item.value}
+                  value={item.value}
+                >
+                  {item.text}
+                </option>
+              );
+            })}
+          </select>
         </div>
       </div>
     </nav>

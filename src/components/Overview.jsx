@@ -23,11 +23,11 @@ const Overview = () => {
 
       <div className="w-full flex flex-col gap-3">
         <Navbar />
-        <div className="px-10 py-8 flex flex-col gap-3 md:flex-row md:justify-between">
+        <div className="px-2 md:px-10 py-8 flex flex-col gap-3 md:flex-row md:justify-between">
         {/* first col */}
           <div className="flex flex-col gap-6">
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-1 md:gap-4">
               <button className="text-gray-200">{t('workspace')}</button>
               <div className="text-gray-200">
                 <MdArrowForwardIos />
@@ -38,7 +38,7 @@ const Overview = () => {
               </div>
               <button>{t('creativeWebsite')}</button>
             </div>
-            <h1 className="font-extrabold text-4xl">{t('webDesign')}</h1>
+            <h1 className="font-extrabold text-2xl md:text-4xl">{t('webDesign')}</h1>
             <div className="flex items-center gap-5">
 
               <div className="flex items-center gap-2">
@@ -93,7 +93,7 @@ const Overview = () => {
 
           </div>
         {/* second col */}
-          <div className="flex flex-col items-end gap-6">
+          <div className="flex flex-col md:items-end gap-6">
             <h2>{t('From 23 April')}</h2>
             <div className="flex gap-3 items-center">
               <div className="h-2 w-2 bg-green-200 rounded-full"></div>

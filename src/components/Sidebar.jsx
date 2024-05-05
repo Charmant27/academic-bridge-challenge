@@ -11,7 +11,7 @@ const Sidebar = () => {
     <section
       className={`${mode === 'light' ?
         'bg-white border-r border-r-gray-100' :
-        'bg-slate-800 border-r border-r-slate-700 text-white'} w-[5%] md:flex flex-col gap-6 h-screen hidden`
+        'bg-slate-800 border-r border-r-slate-700 text-white'} w-[5%] lg:flex flex-col gap-6 h-screen hidden`
       }
     >
       <div className="px-4 py-8">

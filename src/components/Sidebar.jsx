@@ -6,7 +6,7 @@ import { IoSettingsOutline } from "react-icons/io5"
 const Sidebar = () => {
   return (
     <section
-      className='bg-white w-[5%] flex flex-col gap-6 border-r border-r-gray-100'
+      className='bg-white w-[5%] flex flex-col gap-6 border-r border-r-gray-100 h-screen'
     >
       <div className="px-4 py-8">
         <img
